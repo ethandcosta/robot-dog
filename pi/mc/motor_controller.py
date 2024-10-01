@@ -8,13 +8,6 @@ from MoteusException import MoteusPermissionsError, MoteusCanError
 
 class MotorController(MoteusController):
 
-	async def on_open(self, transport=None, servos=None):
-	""" This class defines the motor controller.
-
-	Args:
-		MoteusController (MoteusController): The Moteus Controller
-	"""
-
 	async def on_open(self, transport=None, servos=None):  # Starts on open
 		if transport is not None and servos is not None:
 			results = await transport.cycle([x.make_stop(query=True) for x in servos.values()])
